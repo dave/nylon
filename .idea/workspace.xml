@@ -2,20 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/foo/foo.go" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hello/hello.go" afterPath="$PROJECT_DIR$/src/hello/hello.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/common/common.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tags/default.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tags/my-tag.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/root/node.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/render/render.go" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/nylon/nylon.go" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/store.go" afterPath="$PROJECT_DIR$/src/store/store.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nylon.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/store.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376657294912" ignored="false" />
+    <file path="/store.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376676724840" ignored="false" />
     <file path="/main.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376655967753" ignored="false" />
-    <file path="/hello.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376660433932" ignored="false" />
+    <file path="/hello.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376664126139" ignored="false" />
     <file path="/.gitignore" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376656866596" ignored="false" />
     <file path="/README.md" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376656936241" ignored="false" />
     <file path="/Dummy.txt" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376658101172" ignored="false" />
+    <file path="/render.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376676352866" ignored="false" />
+    <file path="/root.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376668255382" ignored="false" />
+    <file path="$PROJECT_DIR$/../test/src/main.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376665373123" ignored="false" />
+    <file path="$PROJECT_DIR$/../test1/main.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376665402907" ignored="false" />
+    <file path="/page.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376669308435" ignored="false" />
+    <file path="/node.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376677669958" ignored="false" />
+    <file path="/common.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376675335544" ignored="false" />
+    <file path="/init.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376676375498" ignored="false" />
+    <file path="/a.dummy" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376674188367" ignored="false" />
+    <file path="/image.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376677462298" ignored="false" />
+    <file path="/raw.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376676487200" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,52 +96,61 @@
       <file leaf-file-name="store.go" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/store.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="1" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hello.go" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/hello/hello.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="171" selection-end="171" vertical-scroll-proportion="0.32687652">
+            <state line="8" column="41" selection-start="137" selection-end="137" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="render.go" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/pkg/code.google.com/p/go.net/html/render.go">
+        <entry file="file://$PROJECT_DIR$/src/render/render.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="249" column="1" selection-start="6654" selection-end="6654" vertical-scroll-proportion="0.0">
+            <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="escape.go" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/pkg/code.google.com/p/go.net/html/escape.go">
+      <file leaf-file-name="common.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/common/common.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="195" column="0" selection-start="4537" selection-end="4568" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="token.go" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/pkg/code.google.com/p/go.net/html/token.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="4" selection-start="558" selection-end="558" vertical-scroll-proportion="0.0">
+            <state line="8" column="4" selection-start="94" selection-end="151" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="node.go" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/pkg/code.google.com/p/go.net/html/node.go">
+        <entry file="file://$PROJECT_DIR$/src/root/node.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="5" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0">
+            <state line="11" column="43" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tags/default.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/root/init.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="11" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my-tag.go" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tags/my-tag.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="20" selection-start="372" selection-end="372" vertical-scroll-proportion="0.5">
               <folding />
             </state>
           </provider>
@@ -151,13 +174,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main.go" />
-        <option value="$PROJECT_DIR$/app.yaml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/foo/foo.go" />
-        <option value="$PROJECT_DIR$/src/store/store.go" />
         <option value="$PROJECT_DIR$/src/hello/hello.go" />
+        <option value="$PROJECT_DIR$/src/nylon/nylon.go" />
+        <option value="$PROJECT_DIR$/src/main/main.go" />
+        <option value="$PROJECT_DIR$/src/nylon/table/table.go" />
+        <option value="$PROJECT_DIR$/src/root/root.go" />
+        <option value="$PROJECT_DIR$/src/nylon/page/page.go" />
+        <option value="$PROJECT_DIR$/src/nylon/image/image.go" />
+        <option value="$PROJECT_DIR$/src/common/common.go" />
+        <option value="$PROJECT_DIR$/src/root/render.go" />
+        <option value="$PROJECT_DIR$/src/render/render.go" />
+        <option value="$PROJECT_DIR$/src/root/init.go" />
+        <option value="$PROJECT_DIR$/src/tags/raw.go" />
+        <option value="$PROJECT_DIR$/src/tags/image.go" />
+        <option value="$PROJECT_DIR$/src/store/store.go" />
+        <option value="$PROJECT_DIR$/src/root/node.go" />
+        <option value="$PROJECT_DIR$/src/tags/my-tag.go" />
       </list>
     </option>
   </component>
@@ -240,6 +272,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="tags" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nylon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nylon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="store" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -258,7 +308,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hello" />
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nylon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nylon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="render" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nylon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nylon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -286,6 +372,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/render" />
+      <recent name="$PROJECT_DIR$/src/tags" />
+      <recent name="$PROJECT_DIR$/src/root" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -403,7 +492,9 @@
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
     <list size="1">
@@ -447,9 +538,10 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32978722" sideWeight="0.50042623" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.50042623" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.49957374" order="-1" side_tool="false" content_ui="tabs" />
@@ -461,7 +553,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -531,13 +622,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nylon.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -573,13 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/store.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="1" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/go/src/pkg/code.google.com/p/go.net/html/escape.go">
       <provider selected="true" editor-type-id="text-editor">
         <state line="195" column="0" selection-start="4537" selection-end="4568" vertical-scroll-proportion="0.0">
@@ -587,16 +664,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/go/src/pkg/code.google.com/p/go.net/html/render.go">
+    <entry file="file:///usr/local/go/src/pkg/builtin/builtin.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="249" column="1" selection-start="6654" selection-end="6654" vertical-scroll-proportion="0.0">
+        <state line="240" column="5" selection-start="10186" selection-end="10186" vertical-scroll-proportion="0.78571427">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hello/hello.go">
+    <entry file="file:///usr/local/go/src/pkg/code.google.com/p/go.net/html/render.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="171" selection-end="171" vertical-scroll-proportion="0.32687652">
+        <state line="24" column="10" selection-start="584" selection-end="584" vertical-scroll-proportion="0.024711696">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/go/src/pkg/io/io.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="234" column="0" selection-start="8305" selection-end="8305" vertical-scroll-proportion="5.8112583">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/common.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="4" selection-start="94" selection-end="151" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/render/render.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/store.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="41" selection-start="137" selection-end="137" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/root/init.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="11" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tags/default.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/root/node.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="43" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tags/my-tag.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="20" selection-start="372" selection-end="372" vertical-scroll-proportion="0.5">
           <folding />
         </state>
       </provider>
