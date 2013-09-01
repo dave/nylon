@@ -70,7 +70,7 @@ call to Next. For example, to extract an HTML page's anchor text:
 	}
 
 Parsing is done by calling Parse with an io.Reader, which returns the root of
-the parse tree (the document element) as a *Node. It is the caller's
+the parse tree (the document element) as a Node. It is the caller's
 responsibility to ensure that the Reader provides UTF-8 encoded HTML. For
 example, to process each anchor node in depth-first order:
 
@@ -80,10 +80,10 @@ example, to process each anchor node in depth-first order:
 	}
 	var f func(*html.Node)
 	f = func(n *html.Node) {
-		if n.Type == html.ElementNode && n.Data == "a" {
+		if n.Type() == html.ElementNode && n.Data() == "a" {
 			// Do something with n...
 		}
-		for c := n.FirstChild; c != nil; c = c.NextSibling {
+		for c := n.FirstChild(); c != nil; c = c.NextSibling() {
 			f(c)
 		}
 	}
@@ -93,7 +93,7 @@ The relevant specifications include:
 http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html and
 http://www.whatwg.org/specs/web-apps/current-work/multipage/tokenization.html
 */
-package html
+package nml
 
 // The tokenization algorithm implemented by this package is not a line-by-line
 // transliteration of the relatively verbose state-machine in the WHATWG

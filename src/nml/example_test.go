@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 // This example demonstrates parsing HTML data and walking the resulting tree.
-package html_test
+package nml_test
 
 import (
 	"fmt"
@@ -21,15 +21,15 @@ func ExampleParse() {
 	}
 	var f func(*html.Node)
 	f = func(n *html.Node) {
-		if n.Type == html.ElementNode && n.Data == "a" {
-			for _, a := range n.Attr {
+		if n.Type() == html.ElementNode && n.Data() == "a" {
+			for _, a := range n.Attr() {
 				if a.Key == "href" {
 					fmt.Println(a.Val)
 					break
 				}
 			}
 		}
-		for c := n.FirstChild; c != nil; c = c.NextSibling {
+		for c := n.FirstChild(); c != nil; c = c.NextSibling() {
 			f(c)
 		}
 	}

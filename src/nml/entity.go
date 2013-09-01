@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package html
+package nml
 
 // All entities that do not end with ';' are 6 or fewer bytes long.
 const longestEntityWithoutSemicolon = 6

@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package html
+package nml
 
 import (
 	"strings"
@@ -31,14 +31,14 @@ func adjustForeignAttributes(aa []Attribute) {
 	}
 }
 
-func htmlIntegrationPoint(n *Node) bool {
-	if n.Type != ElementNode {
+func htmlIntegrationPoint(n Node) bool {
+	if n.Type() != ElementNode {
 		return false
 	}
-	switch n.Namespace {
+	switch n.Namespace() {
 	case "math":
-		if n.Data == "annotation-xml" {
-			for _, a := range n.Attr {
+		if n.Data() == "annotation-xml" {
+			for _, a := range n.Attr() {
 				if a.Key == "encoding" {
 					val := strings.ToLower(a.Val)
 					if val == "text/html" || val == "application/xhtml+xml" {
@@ -48,7 +48,7 @@ func htmlIntegrationPoint(n *Node) bool {
 			}
 		}
 	case "svg":
-		switch n.Data {
+		switch n.Data() {
 		case "desc", "foreignObject", "title":
 			return true
 		}
@@ -56,11 +56,11 @@ func htmlIntegrationPoint(n *Node) bool {
 	return false
 }
 
-func mathMLTextIntegrationPoint(n *Node) bool {
-	if n.Namespace != "math" {
+func mathMLTextIntegrationPoint(n Node) bool {
+	if n.Namespace() != "math" {
 		return false
 	}
-	switch n.Data {
+	switch n.Data() {
 	case "mi", "mo", "mn", "ms", "mtext":
 		return true
 	}

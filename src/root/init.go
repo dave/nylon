@@ -3,10 +3,10 @@ package root
 import (
 	"store"
 	"net/http"
-	"code.google.com/p/go.net/html"
+	"nml"
 	"strings"
 	"bufio"
-	"render"
+	"tags"
 )
 
 func init() {
@@ -18,18 +18,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	str := store.Get()
 	read := strings.NewReader(str)
 
-	doc, err := html.Parse(read)
+	doc, err := nml.Parse(read, tags.Lookup)
 	if err != nil {
 		panic(err)
 	}
 	buf := bufio.NewWriter(w)
 
-	node := WrapNode(doc)
-
-	err = node.Render(buf, WrapNode)
-	if err != nil && err != render.PlaintextAbort{
-		panic(err)
-	}
+	err = nml.Render(buf, doc)
 	buf.Flush()
 
 }

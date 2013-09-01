@@ -1,37 +1,22 @@
 package tags
 
 import (
-	"common"
-	"code.google.com/p/go.net/html"
-	"render"
+	"nml"
 )
 
 type Default struct {
-	*html.Node
+	*nml.NodeStruct
 }
-func (n *Default) Render(w common.Writer, wrapper func(*html.Node) common.Renderer) error {
 
-	if n.Type == html.ElementNode || n.Type == html.DocumentNode {
+func (n *Default) BeforeRender() {
 
-		if err := render.OpeningTag(w, n.Node); err != nil {
-			return err
-		}
+}
 
-		if err := render.Contents(w, n.Node, wrapper); err != nil {
-			return err
-		}
-
-		if err := render.ClosingTag(w, n.Node); err != nil {
-			return err
-		}
-
-	} else {
-
-		if err := render.NonElementNode(w, n.Node); err != nil {
-			return err
-		}
-
+func Lookup(node *nml.NodeStruct) nml.Node {
+	switch node.Data() {
+	case "my-tag":
+		return &My_Tag{node}
+	default:
+		return &Default{node}
 	}
-	return nil
-
 }

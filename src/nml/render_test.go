@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package html
+package nml
 
 import (
 	"bytes"
@@ -10,7 +10,7 @@ import (
 )
 
 func TestRenderer(t *testing.T) {
-	nodes := [...]*Node{
+	nodes := [...]Node{
 		0: {
 			Type: ElementNode,
 			Data: "html",
@@ -114,7 +114,7 @@ func TestRenderer(t *testing.T) {
 	if len(nodes) != len(treeAsText) {
 		t.Fatal("len(nodes) != len(treeAsText)")
 	}
-	var stack [8]*Node
+	var stack [8]Node
 	for i, line := range treeAsText {
 		level := 0
 		for line[0] == '.' {

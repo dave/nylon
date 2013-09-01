@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package html
+package nml
 
 // Section 12.2.3.2 of the HTML5 specification says "The following elements
 // have varying levels of special parsing rules".
@@ -89,12 +89,12 @@ var isSpecialElementMap = map[string]bool{
 	"xmp":        true,
 }
 
-func isSpecialElement(element *Node) bool {
-	switch element.Namespace {
+func isSpecialElement(element Node) bool {
+	switch element.Namespace() {
 	case "", "html":
-		return isSpecialElementMap[element.Data]
+		return isSpecialElementMap[element.Data()]
 	case "svg":
-		return element.Data == "foreignObject"
+		return element.Data() == "foreignObject"
 	}
 	return false
 }
