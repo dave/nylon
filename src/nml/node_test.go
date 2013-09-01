@@ -21,7 +21,7 @@ func checkTreeConsistency1(n Node, depth int) error {
 	if err := checkNodeConsistency(n); err != nil {
 		return err
 	}
-	for c := n.FirstChild(); c != nil; c = c.NextSibling() {
+	for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
 		if err := checkTreeConsistency1(c, depth+1); err != nil {
 			return err
 		}
@@ -37,7 +37,7 @@ func checkNodeConsistency(n Node) error {
 	}
 
 	nParent := 0
-	for p := n.Parent(); p != nil; p = p.Parent() {
+	for p := n.GetParent(); p != nil; p = p.GetParent() {
 		nParent++
 		if nParent == 1e4 {
 			return fmt.Errorf("html: parent list looks like an infinite loop")
@@ -45,46 +45,46 @@ func checkNodeConsistency(n Node) error {
 	}
 
 	nForward := 0
-	for c := n.FirstChild(); c != nil; c = c.NextSibling() {
+	for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
 		nForward++
 		if nForward == 1e6 {
 			return fmt.Errorf("html: forward list of children looks like an infinite loop")
 		}
-		if c.Parent() != n {
+		if c.GetParent() != n {
 			return fmt.Errorf("html: inconsistent child/parent relationship")
 		}
 	}
 
 	nBackward := 0
-	for c := n.LastChild(); c != nil; c = c.PrevSibling() {
+	for c := n.GetLastChild(); c != nil; c = c.GetPrevSibling() {
 		nBackward++
 		if nBackward == 1e6 {
 			return fmt.Errorf("html: backward list of children looks like an infinite loop")
 		}
-		if c.Parent() != n {
+		if c.GetParent() != n {
 			return fmt.Errorf("html: inconsistent child/parent relationship")
 		}
 	}
 
-	if n.Parent() != nil {
-		if n.Parent() == n {
+	if n.GetParent() != nil {
+		if n.GetParent() == n {
 			return fmt.Errorf("html: inconsistent parent relationship")
 		}
-		if n.Parent() == n.FirstChild() {
+		if n.GetParent() == n.GetFirstChild() {
 			return fmt.Errorf("html: inconsistent parent/first relationship")
 		}
-		if n.Parent() == n.LastChild() {
+		if n.GetParent() == n.GetLastChild() {
 			return fmt.Errorf("html: inconsistent parent/last relationship")
 		}
-		if n.Parent() == n.PrevSibling() {
+		if n.GetParent() == n.GetPrevSibling() {
 			return fmt.Errorf("html: inconsistent parent/prev relationship")
 		}
-		if n.Parent() == n.NextSibling() {
+		if n.GetParent() == n.GetNextSibling() {
 			return fmt.Errorf("html: inconsistent parent/next relationship")
 		}
 
 		parentHasNAsAChild := false
-		for c := n.Parent().FirstChild(); c != nil; c = c.NextSibling() {
+		for c := n.GetParent().GetFirstChild(); c != nil; c = c.GetNextSibling() {
 			if c == n {
 				parentHasNAsAChild = true
 				break
@@ -95,19 +95,19 @@ func checkNodeConsistency(n Node) error {
 		}
 	}
 
-	if n.PrevSibling() != nil && n.PrevSibling().NextSibling() != n {
+	if n.GetPrevSibling() != nil && n.GetPrevSibling().GetNextSibling() != n {
 		return fmt.Errorf("html: inconsistent prev/next relationship")
 	}
-	if n.NextSibling() != nil && n.NextSibling().PrevSibling() != n {
+	if n.GetNextSibling() != nil && n.GetNextSibling().GetPrevSibling() != n {
 		return fmt.Errorf("html: inconsistent next/prev relationship")
 	}
 
-	if (n.FirstChild() == nil) != (n.LastChild() == nil) {
+	if (n.GetFirstChild() == nil) != (n.GetLastChild() == nil) {
 		return fmt.Errorf("html: inconsistent first/last relationship")
 	}
-	if n.FirstChild() != nil && n.FirstChild() == n.LastChild() {
+	if n.GetFirstChild() != nil && n.GetFirstChild() == n.GetLastChild() {
 		// We have a sole child.
-		if n.FirstChild().PrevSibling() != nil || n.FirstChild().NextSibling() != nil {
+		if n.GetFirstChild().GetPrevSibling() != nil || n.GetFirstChild().GetNextSibling() != nil {
 			return fmt.Errorf("html: inconsistent sole child's sibling relationship")
 		}
 	}
@@ -115,26 +115,26 @@ func checkNodeConsistency(n Node) error {
 	seen := map[Node]bool{}
 
 	var last Node
-	for c := n.FirstChild(); c != nil; c = c.NextSibling() {
+	for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
 		if seen[c] {
 			return fmt.Errorf("html: inconsistent repeated child")
 		}
 		seen[c] = true
 		last = c
 	}
-	if last != n.LastChild() {
+	if last != n.GetLastChild() {
 		return fmt.Errorf("html: inconsistent last relationship")
 	}
 
 	var first Node
-	for c := n.LastChild(); c != nil; c = c.PrevSibling() {
+	for c := n.GetLastChild(); c != nil; c = c.GetPrevSibling() {
 		if !seen[c] {
 			return fmt.Errorf("html: inconsistent missing child")
 		}
 		delete(seen, c)
 		first = c
 	}
-	if first != n.FirstChild() {
+	if first != n.GetFirstChild() {
 		return fmt.Errorf("html: inconsistent first relationship")
 	}
 

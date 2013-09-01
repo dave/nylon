@@ -13,7 +13,7 @@ func (n *Default) BeforeRender() {
 }
 
 func Lookup(node *nml.NodeStruct) nml.Node {
-	switch node.Data() {
+	switch node.GetData() {
 	case "my-tag":
 		return &My_Tag{node}
 	default:

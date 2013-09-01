@@ -90,11 +90,11 @@ var isSpecialElementMap = map[string]bool{
 }
 
 func isSpecialElement(element Node) bool {
-	switch element.Namespace() {
+	switch element.GetNamespace() {
 	case "", "html":
-		return isSpecialElementMap[element.Data()]
+		return isSpecialElementMap[element.GetData()]
 	case "svg":
-		return element.Data() == "foreignObject"
+		return element.GetData() == "foreignObject"
 	}
 	return false
 }

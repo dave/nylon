@@ -32,13 +32,13 @@ func adjustForeignAttributes(aa []Attribute) {
 }
 
 func htmlIntegrationPoint(n Node) bool {
-	if n.Type() != ElementNode {
+	if n.GetType() != ElementNode {
 		return false
 	}
-	switch n.Namespace() {
+	switch n.GetNamespace() {
 	case "math":
-		if n.Data() == "annotation-xml" {
-			for _, a := range n.Attr() {
+		if n.GetData() == "annotation-xml" {
+			for _, a := range n.GetAttr() {
 				if a.Key == "encoding" {
 					val := strings.ToLower(a.Val)
 					if val == "text/html" || val == "application/xhtml+xml" {
@@ -48,7 +48,7 @@ func htmlIntegrationPoint(n Node) bool {
 			}
 		}
 	case "svg":
-		switch n.Data() {
+		switch n.GetData() {
 		case "desc", "foreignObject", "title":
 			return true
 		}
@@ -57,10 +57,10 @@ func htmlIntegrationPoint(n Node) bool {
 }
 
 func mathMLTextIntegrationPoint(n Node) bool {
-	if n.Namespace() != "math" {
+	if n.GetNamespace() != "math" {
 		return false
 	}
-	switch n.Data() {
+	switch n.GetData() {
 	case "mi", "mo", "mn", "ms", "mtext":
 		return true
 	}

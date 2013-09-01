@@ -125,7 +125,7 @@ func (a sortedAttributes) Swap(i, j int) {
 
 func dumpLevel(w io.Writer, n Node, level int) error {
 	dumpIndent(w, level)
-	switch n.Type() {
+	switch n.GetType() {
 	case ErrorNode:
 		return errors.New("unexpected ErrorNode")
 	case DocumentNode:
@@ -153,9 +153,9 @@ func dumpLevel(w io.Writer, n Node, level int) error {
 		fmt.Fprintf(w, "<!-- %s -->", n.Data)
 	case DoctypeNode:
 		fmt.Fprintf(w, "<!DOCTYPE %s", n.Data)
-		if n.Attr() != nil {
+		if n.GetAttr() != nil {
 			var p, s string
-			for _, a := range n.Attr() {
+			for _, a := range n.GetAttr() {
 				switch a.Key {
 				case "public":
 					p = a.Val
@@ -175,7 +175,7 @@ func dumpLevel(w io.Writer, n Node, level int) error {
 		return errors.New("unknown node type")
 	}
 	io.WriteString(w, "\n")
-	for c := n.FirstChild(); c != nil; c = c.NextSibling() {
+	for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
 		if err := dumpLevel(w, c, level+1); err != nil {
 			return err
 		}
@@ -184,11 +184,11 @@ func dumpLevel(w io.Writer, n Node, level int) error {
 }
 
 func dump(n Node) (string, error) {
-	if n == nil || n.FirstChild() == nil {
+	if n == nil || n.GetFirstChild() == nil {
 		return "", nil
 	}
 	var b bytes.Buffer
-	for c := n.FirstChild(); c != nil; c = c.NextSibling() {
+	for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
 		if err := dumpLevel(&b, c, 0); err != nil {
 			return "", err
 		}

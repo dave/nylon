@@ -21,15 +21,15 @@ func ExampleParse() {
 	}
 	var f func(*html.Node)
 	f = func(n *html.Node) {
-		if n.Type() == html.ElementNode && n.Data() == "a" {
-			for _, a := range n.Attr() {
+		if n.GetType() == html.ElementNode && n.GetData() == "a" {
+			for _, a := range n.GetAttr() {
 				if a.Key == "href" {
 					fmt.Println(a.Val)
 					break
 				}
 			}
 		}
-		for c := n.FirstChild(); c != nil; c = c.NextSibling() {
+		for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
 			f(c)
 		}
 	}

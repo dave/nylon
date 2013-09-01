@@ -66,14 +66,15 @@ func render(w writer, n Node) error {
 }
 
 func render1(w writer, n Node) error {
+	n.BeforeRender()
 	// Render non-element nodes; these are the easy cases.
-	switch n.Type() {
+	switch n.GetType() {
 	case ErrorNode:
 		return errors.New("html: cannot render an ErrorNode node")
 	case TextNode:
-		return escape(w, n.Data())
+		return escape(w, n.GetData())
 	case DocumentNode:
-		for c := n.FirstChild(); c != nil; c = c.NextSibling() {
+		for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
 			if err := render1(w, c); err != nil {
 				return err
 			}
@@ -85,7 +86,7 @@ func render1(w writer, n Node) error {
 		if _, err := w.WriteString("<!--"); err != nil {
 			return err
 		}
-		if _, err := w.WriteString(n.Data()); err != nil {
+		if _, err := w.WriteString(n.GetData()); err != nil {
 			return err
 		}
 		if _, err := w.WriteString("-->"); err != nil {
@@ -96,12 +97,12 @@ func render1(w writer, n Node) error {
 		if _, err := w.WriteString("<!DOCTYPE "); err != nil {
 			return err
 		}
-		if _, err := w.WriteString(n.Data()); err != nil {
+		if _, err := w.WriteString(n.GetData()); err != nil {
 			return err
 		}
-		if n.Attr() != nil {
+		if n.GetAttr() != nil {
 			var p, s string
-			for _, a := range n.Attr() {
+			for _, a := range n.GetAttr() {
 				switch a.Key {
 				case "public":
 					p = a.Val
@@ -142,10 +143,10 @@ func render1(w writer, n Node) error {
 	if err := w.WriteByte('<'); err != nil {
 		return err
 	}
-	if _, err := w.WriteString(n.Data()); err != nil {
+	if _, err := w.WriteString(n.GetData()); err != nil {
 		return err
 	}
-	for _, a := range n.Attr() {
+	for _, a := range n.GetAttr() {
 		if err := w.WriteByte(' '); err != nil {
 			return err
 		}
@@ -170,9 +171,9 @@ func render1(w writer, n Node) error {
 			return err
 		}
 	}
-	if voidElements[n.Data()] {
-		if n.FirstChild() != nil {
-			return fmt.Errorf("html: void element <%s> has child nodes", n.Data())
+	if voidElements[n.GetData()] {
+		if n.GetFirstChild() != nil {
+			return fmt.Errorf("html: void element <%s> has child nodes", n.GetData())
 		}
 		_, err := w.WriteString("/>")
 		return err
@@ -182,8 +183,8 @@ func render1(w writer, n Node) error {
 	}
 
 	// Add initial newline where there is danger of a newline beging ignored.
-	if c := n.FirstChild(); c != nil && c.Type() == TextNode && strings.HasPrefix(c.Data(), "\n") {
-		switch n.Data() {
+	if c := n.GetFirstChild(); c != nil && c.GetType() == TextNode && strings.HasPrefix(c.GetData(), "\n") {
+		switch n.GetData() {
 		case "pre", "listing", "textarea":
 			if err := w.WriteByte('\n'); err != nil {
 				return err
@@ -192,11 +193,11 @@ func render1(w writer, n Node) error {
 	}
 
 	// Render any child nodes.
-	switch n.Data() {
+	switch n.GetData() {
 	case "iframe", "noembed", "noframes", "noscript", "plaintext", "script", "style", "xmp":
-		for c := n.FirstChild(); c != nil; c = c.NextSibling() {
-			if c.Type() == TextNode {
-				if _, err := w.WriteString(c.Data()); err != nil {
+		for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
+			if c.GetType() == TextNode {
+				if _, err := w.WriteString(c.GetData()); err != nil {
 					return err
 				}
 			} else {
@@ -205,13 +206,13 @@ func render1(w writer, n Node) error {
 				}
 			}
 		}
-		if n.Data() == "plaintext" {
+		if n.GetData() == "plaintext" {
 			// Don't render anything else. <plaintext> must be the
 			// last element in the file, with no closing tag.
 			return plaintextAbort
 		}
 	default:
-		for c := n.FirstChild(); c != nil; c = c.NextSibling() {
+		for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
 			if err := render1(w, c); err != nil {
 				return err
 			}
@@ -222,7 +223,7 @@ func render1(w writer, n Node) error {
 	if _, err := w.WriteString("</"); err != nil {
 		return err
 	}
-	if _, err := w.WriteString(n.Data()); err != nil {
+	if _, err := w.WriteString(n.GetData()); err != nil {
 		return err
 	}
 	return w.WriteByte('>')

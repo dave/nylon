@@ -14,7 +14,7 @@ import (
 // named "system" and "public" for the two identifiers if they were present.
 // quirks is whether the document should be parsed in "quirks mode".
 func parseDoctype(s string, lookup func(node *NodeStruct) Node) (n Node, quirks bool) {
-	n = lookup(&NodeStruct{nodeType: DoctypeNode})
+	n = lookup(&NodeStruct{Type: DoctypeNode})
 
 	// Find the name.
 	space := strings.IndexAny(s, whitespace)
@@ -23,10 +23,10 @@ func parseDoctype(s string, lookup func(node *NodeStruct) Node) (n Node, quirks 
 	}
 	n.SetData(s[:space])
 	// The comparison to "html" is case-sensitive.
-	if n.Data() != "html" {
+	if n.GetData() != "html" {
 		quirks = true
 	}
-	n.SetData(strings.ToLower(n.Data()))
+	n.SetData(strings.ToLower(n.GetData()))
 	s = strings.TrimLeft(s[space:], whitespace)
 
 	if len(s) < 6 {
@@ -56,7 +56,7 @@ func parseDoctype(s string, lookup func(node *NodeStruct) Node) (n Node, quirks 
 			id = s[:q]
 			s = s[q+1:]
 		}
-		n.SetAttr(append(n.Attr(), Attribute{Key: key, Val: id}))
+		n.SetAttr(append(n.GetAttr(), Attribute{Key: key, Val: id}))
 		if key == "public" {
 			key = "system"
 		} else {
@@ -66,9 +66,9 @@ func parseDoctype(s string, lookup func(node *NodeStruct) Node) (n Node, quirks 
 
 	if key != "" || s != "" {
 		quirks = true
-	} else if len(n.Attr()) > 0 {
-		if n.Attr()[0].Key == "public" {
-			public := strings.ToLower(n.Attr()[0].Val)
+	} else if len(n.GetAttr()) > 0 {
+		if n.GetAttr()[0].Key == "public" {
+			public := strings.ToLower(n.GetAttr()[0].Val)
 			switch public {
 			case "-//w3o//dtd w3 html strict 3.0//en//", "-/w3d/dtd html 4.0 transitional/en", "html":
 				quirks = true
@@ -81,12 +81,12 @@ func parseDoctype(s string, lookup func(node *NodeStruct) Node) (n Node, quirks 
 				}
 			}
 			// The following two public IDs only cause quirks mode if there is no system ID.
-			if len(n.Attr()) == 1 && (strings.HasPrefix(public, "-//w3c//dtd html 4.01 frameset//") ||
+			if len(n.GetAttr()) == 1 && (strings.HasPrefix(public, "-//w3c//dtd html 4.01 frameset//") ||
 				strings.HasPrefix(public, "-//w3c//dtd html 4.01 transitional//")) {
 				quirks = true
 			}
 		}
-		if lastAttr := n.Attr()[len(n.Attr())-1]; lastAttr.Key == "system" &&
+		if lastAttr := n.GetAttr()[len(n.GetAttr())-1]; lastAttr.Key == "system" &&
 			strings.ToLower(lastAttr.Val) == "http://www.ibm.com/data/dtd/v11/ibmxhtml1-transitional.dtd" {
 			quirks = true
 		}

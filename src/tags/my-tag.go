@@ -9,5 +9,5 @@ type My_Tag struct {
 }
 
 func (n My_Tag) BeforeRender() {
-
+	n.NodeStruct.Attr = append(n.NodeStruct.Attr, nml.Attribute{"", "style", "color:red;"});
 }

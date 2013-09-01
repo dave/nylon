@@ -8,7 +8,7 @@ import (
 /*
 func WrapNode(n *html.Node) common.Renderer {
 
-	if n.Type() == html.ElementNode && n.Data() == "my-tag" {
+	if n.GetType() == html.ElementNode && n.GetData() == "my-tag" {
 		return common.Renderer(&tags.My_Tag{n})
 	} else {
 		return common.Renderer(&tags.Default{n})

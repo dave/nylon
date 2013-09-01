@@ -109,8 +109,8 @@ func (p *parser) popUntil(s scope, matchTags ...a.Atom) bool {
 // returns -1.
 func (p *parser) indexOfElementInScope(s scope, matchTags ...a.Atom) int {
 	for i := len(p.oe) - 1; i >= 0; i-- {
-		tagAtom := p.oe[i].DataAtom()
-		if p.oe[i].Namespace() == "" {
+		tagAtom := p.oe[i].GetDataAtom()
+		if p.oe[i].GetNamespace() == "" {
 			for _, t := range matchTags {
 				if t == tagAtom {
 					return i
@@ -141,7 +141,7 @@ func (p *parser) indexOfElementInScope(s scope, matchTags ...a.Atom) int {
 		}
 		switch s {
 		case defaultScope, listItemScope, buttonScope:
-			for _, t := range defaultScopeStopTags[p.oe[i].Namespace()] {
+			for _, t := range defaultScopeStopTags[p.oe[i].GetNamespace()] {
 				if t == tagAtom {
 					return -1
 				}
@@ -161,7 +161,7 @@ func (p *parser) elementInScope(s scope, matchTags ...a.Atom) bool {
 // scope-defined element is found.
 func (p *parser) clearStackToContext(s scope) {
 	for i := len(p.oe) - 1; i >= 0; i-- {
-		tagAtom := p.oe[i].DataAtom()
+		tagAtom := p.oe[i].GetDataAtom()
 		switch s {
 		case tableScope:
 			if tagAtom == a.Html || tagAtom == a.Table {
@@ -192,11 +192,11 @@ func (p *parser) generateImpliedEndTags(exceptions ...string) {
 loop:
 	for i = len(p.oe) - 1; i >= 0; i-- {
 		n := p.oe[i]
-		if n.Type() == ElementNode {
-			switch n.DataAtom() {
+		if n.GetType() == ElementNode {
+			switch n.GetDataAtom() {
 			case a.Dd, a.Dt, a.Li, a.Option, a.Optgroup, a.P, a.Rp, a.Rt:
 				for _, except := range exceptions {
-					if n.Data() == except {
+					if n.GetData() == except {
 						break loop
 					}
 				}
@@ -218,7 +218,7 @@ func (p *parser) addChild(n Node) {
 		AppendChild(p.top(), n)
 	}
 
-	if n.Type() == ElementNode {
+	if n.GetType() == ElementNode {
 		p.oe = append(p.oe, n)
 	}
 }
@@ -227,7 +227,7 @@ func (p *parser) addChild(n Node) {
 // foster parented.
 func (p *parser) shouldFosterParent() bool {
 	if p.fosterParenting {
-		switch p.top().DataAtom() {
+		switch p.top().GetDataAtom() {
 		case a.Table, a.Tbody, a.Tfoot, a.Thead, a.Tr:
 			return true
 		}
@@ -241,7 +241,7 @@ func (p *parser) fosterParent(n Node) {
 	var table, parent, prev Node
 	var i int
 	for i = len(p.oe) - 1; i >= 0; i-- {
-		if p.oe[i].DataAtom() == a.Table {
+		if p.oe[i].GetDataAtom() == a.Table {
 			table = p.oe[i]
 			break
 		}
@@ -251,19 +251,19 @@ func (p *parser) fosterParent(n Node) {
 		// The foster parent is the html element.
 		parent = p.oe[0]
 	} else {
-		parent = table.Parent()
+		parent = table.GetParent()
 	}
 	if parent == nil {
 		parent = p.oe[i-1]
 	}
 
 	if table != nil {
-		prev = table.PrevSibling()
+		prev = table.GetPrevSibling()
 	} else {
-		prev = parent.LastChild()
+		prev = parent.GetLastChild()
 	}
-	if prev != nil && prev.Type() == TextNode && n.Type() == TextNode {
-		prev.SetData(prev.Data() + n.Data())
+	if prev != nil && prev.GetType() == TextNode && n.GetType() == TextNode {
+		prev.SetData(prev.GetData() + n.GetData())
 		return
 	}
 
@@ -279,30 +279,30 @@ func (p *parser) addText(text string) {
 
 	if p.shouldFosterParent() {
 		p.fosterParent(p.lookup(&NodeStruct{
-			nodeType: TextNode,
-			data: text,
+			Type: TextNode,
+			Data: text,
 		}))
 		return
 	}
 
 	t := p.top()
-	if n := t.LastChild(); n != nil && n.Type() == TextNode {
-		n.SetData(n.Data() + text)
+	if n := t.GetLastChild(); n != nil && n.GetType() == TextNode {
+		n.SetData(n.GetData() + text)
 		return
 	}
 	p.addChild(p.lookup(&NodeStruct{
-		nodeType: TextNode,
-		data: text,
+		Type: TextNode,
+		Data: text,
 	}))
 }
 
 // addElement adds a child element based on the current token.
 func (p *parser) addElement() {
 	p.addChild(p.lookup(&NodeStruct{
-		nodeType: ElementNode,
-		dataAtom: p.tok.DataAtom,
-		data:     p.tok.Data,
-		attr:     p.tok.Attr,
+		Type: ElementNode,
+		DataAtom: p.tok.DataAtom,
+		Data:     p.tok.Data,
+		Attr:     p.tok.Attr,
 	}))
 }
 
@@ -316,23 +316,23 @@ func (p *parser) addFormattingElement() {
 findIdenticalElements:
 	for i := len(p.afe) - 1; i >= 0; i-- {
 		n := p.afe[i]
-		if n.Type() == scopeMarkerNode {
+		if n.GetType() == scopeMarkerNode {
 			break
 		}
-		if n.Type() != ElementNode {
+		if n.GetType() != ElementNode {
 			continue
 		}
-		if n.Namespace() != "" {
+		if n.GetNamespace() != "" {
 			continue
 		}
-		if n.DataAtom() != tagAtom {
+		if n.GetDataAtom() != tagAtom {
 			continue
 		}
-		if len(n.Attr()) != len(attr) {
+		if len(n.GetAttr()) != len(attr) {
 			continue
 		}
 	compareAttributes:
-		for _, t0 := range n.Attr() {
+		for _, t0 := range n.GetAttr() {
 			for _, t1 := range attr {
 				if t0.Key == t1.Key && t0.Namespace == t1.Namespace && t0.Val == t1.Val {
 					// Found a match for this attribute, continue with the next attribute.
@@ -357,7 +357,7 @@ findIdenticalElements:
 func (p *parser) clearActiveFormattingElements() {
 	for {
 		n := p.afe.pop()
-		if len(p.afe) == 0 || n.Type() == scopeMarkerNode {
+		if len(p.afe) == 0 || n.GetType() == scopeMarkerNode {
 			return
 		}
 	}
@@ -369,11 +369,11 @@ func (p *parser) reconstructActiveFormattingElements() {
 	if n == nil {
 		return
 	}
-	if n.Type() == scopeMarkerNode || p.oe.index(n) != -1 {
+	if n.GetType() == scopeMarkerNode || p.oe.index(n) != -1 {
 		return
 	}
 	i := len(p.afe) - 1
-	for n.Type() != scopeMarkerNode && p.oe.index(n) == -1 {
+	for n.GetType() != scopeMarkerNode && p.oe.index(n) == -1 {
 		if i == 0 {
 			i = -1
 			break
@@ -421,7 +421,7 @@ func (p *parser) resetInsertionMode() {
 			n = p.context
 		}
 
-		switch n.DataAtom() {
+		switch n.GetDataAtom() {
 		case a.Select:
 			p.im = inSelectIM
 		case a.Td, a.Th:
@@ -465,8 +465,8 @@ func initialIM(p *parser) bool {
 		}
 	case CommentToken:
 		AppendChild(p.doc, p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data: p.tok.Data,
+			Type: CommentNode,
+			Data: p.tok.Data,
 		}))
 		return true
 	case DoctypeToken:
@@ -510,8 +510,8 @@ func beforeHTMLIM(p *parser) bool {
 		}
 	case CommentToken:
 		AppendChild(p.doc, p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data: p.tok.Data,
+			Type: CommentNode,
+			Data: p.tok.Data,
 		}))
 		return true
 	}
@@ -549,8 +549,8 @@ func beforeHeadIM(p *parser) bool {
 		}
 	case CommentToken:
 		p.addChild(p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data: p.tok.Data,
+			Type: CommentNode,
+			Data: p.tok.Data,
 		}))
 		return true
 	case DoctypeToken:
@@ -597,7 +597,7 @@ func inHeadIM(p *parser) bool {
 		switch p.tok.DataAtom {
 		case a.Head:
 			n := p.oe.pop()
-			if n.DataAtom() != a.Head {
+			if n.GetDataAtom() != a.Head {
 				panic("html: bad parser state: <head> element not found, in the in-head insertion mode")
 			}
 			p.im = afterHeadIM
@@ -611,8 +611,8 @@ func inHeadIM(p *parser) bool {
 		}
 	case CommentToken:
 		p.addChild(p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data: p.tok.Data,
+			Type: CommentNode,
+			Data: p.tok.Data,
 		}))
 		return true
 	case DoctypeToken:
@@ -668,8 +668,8 @@ func afterHeadIM(p *parser) bool {
 		}
 	case CommentToken:
 		p.addChild(p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data: p.tok.Data,
+			Type: CommentNode,
+			Data: p.tok.Data,
 		}))
 		return true
 	case DoctypeToken:
@@ -688,12 +688,12 @@ func copyAttributes(dst Node, src Token) {
 		return
 	}
 	attr := map[string]string{}
-	for _, t := range dst.Attr() {
+	for _, t := range dst.GetAttr() {
 		attr[t.Key] = t.Val
 	}
 	for _, t := range src.Attr {
 		if _, ok := attr[t.Key]; !ok {
-			dst.SetAttr(append(dst.Attr(), t))
+			dst.SetAttr(append(dst.GetAttr(), t))
 			attr[t.Key] = t.Val
 		}
 	}
@@ -704,9 +704,9 @@ func inBodyIM(p *parser) bool {
 	switch p.tok.Type {
 	case TextToken:
 		d := p.tok.Data
-		switch n := p.oe.top(); n.DataAtom() {
+		switch n := p.oe.top(); n.GetDataAtom() {
 		case a.Pre, a.Listing:
-			if n.FirstChild() == nil {
+			if n.GetFirstChild() == nil {
 				// Ignore a newline at the start of a <pre> block.
 				if d != "" && d[0] == '\r' {
 					d = d[1:]
@@ -735,19 +735,19 @@ func inBodyIM(p *parser) bool {
 		case a.Body:
 			if len(p.oe) >= 2 {
 				body := p.oe[1]
-				if body.Type() == ElementNode && body.DataAtom() == a.Body {
+				if body.GetType() == ElementNode && body.GetDataAtom() == a.Body {
 					p.framesetOK = false
 					copyAttributes(body, p.tok)
 				}
 			}
 		case a.Frameset:
-			if !p.framesetOK || len(p.oe) < 2 || p.oe[1].DataAtom() != a.Body {
+			if !p.framesetOK || len(p.oe) < 2 || p.oe[1].GetDataAtom() != a.Body {
 				// Ignore the token.
 				return true
 			}
 			body := p.oe[1]
-			if body.Parent() != nil {
-				RemoveChild(body.Parent(), body)
+			if body.GetParent() != nil {
+				RemoveChild(body.GetParent(), body)
 			}
 			p.oe = p.oe[:1]
 			p.addElement()
@@ -758,7 +758,7 @@ func inBodyIM(p *parser) bool {
 			p.addElement()
 		case a.H1, a.H2, a.H3, a.H4, a.H5, a.H6:
 			p.popUntil(buttonScope, a.P)
-			switch n := p.top(); n.DataAtom() {
+			switch n := p.top(); n.GetDataAtom() {
 			case a.H1, a.H2, a.H3, a.H4, a.H5, a.H6:
 				p.oe.pop()
 			}
@@ -778,7 +778,7 @@ func inBodyIM(p *parser) bool {
 			p.framesetOK = false
 			for i := len(p.oe) - 1; i >= 0; i-- {
 				node := p.oe[i]
-				switch node.DataAtom() {
+				switch node.GetDataAtom() {
 				case a.Li:
 					p.oe = p.oe[:i]
 				case a.Address, a.Div, a.P:
@@ -796,7 +796,7 @@ func inBodyIM(p *parser) bool {
 			p.framesetOK = false
 			for i := len(p.oe) - 1; i >= 0; i-- {
 				node := p.oe[i]
-				switch node.DataAtom() {
+				switch node.GetDataAtom() {
 				case a.Dd, a.Dt:
 					p.oe = p.oe[:i]
 				case a.Address, a.Div, a.P:
@@ -819,8 +819,8 @@ func inBodyIM(p *parser) bool {
 			p.addElement()
 			p.framesetOK = false
 		case a.A:
-			for i := len(p.afe) - 1; i >= 0 && p.afe[i].Type() != scopeMarkerNode; i-- {
-				if n := p.afe[i]; n.Type() == ElementNode && n.DataAtom() == a.A {
+			for i := len(p.afe) - 1; i >= 0 && p.afe[i].GetType() != scopeMarkerNode; i-- {
+				if n := p.afe[i]; n.GetType() == ElementNode && n.GetDataAtom() == a.A {
 					p.inBodyEndTagFormatting(a.A)
 					p.oe.remove(n)
 					p.afe.remove(n)
@@ -912,10 +912,10 @@ func inBodyIM(p *parser) bool {
 			p.parseImpliedToken(StartTagToken, a.Label, a.Label.String())
 			p.addText(prompt)
 			p.addChild(p.lookup(&NodeStruct{
-				nodeType: ElementNode,
-				dataAtom: a.Input,
-				data:     a.Input.String(),
-				attr:     attr,
+				Type: ElementNode,
+				DataAtom: a.Input,
+				Data:     a.Input.String(),
+				Attr:     attr,
 			}))
 			p.oe.pop()
 			p.parseImpliedToken(EndTagToken, a.Label, a.Label.String())
@@ -949,7 +949,7 @@ func inBodyIM(p *parser) bool {
 			p.im = inSelectIM
 			return true
 		case a.Optgroup, a.Option:
-			if p.top().DataAtom() == a.Option {
+			if p.top().GetDataAtom() == a.Option {
 				p.oe.pop()
 			}
 			p.reconstructActiveFormattingElements()
@@ -1029,8 +1029,8 @@ func inBodyIM(p *parser) bool {
 		}
 	case CommentToken:
 		p.addChild(p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data:     p.tok.Data,
+			Type: CommentNode,
+			Data:     p.tok.Data,
 		}))
 	}
 
@@ -1050,10 +1050,10 @@ func (p *parser) inBodyEndTagFormatting(tagAtom a.Atom) {
 		// Step 4. Find the formatting element.
 		var formattingElement Node
 		for j := len(p.afe) - 1; j >= 0; j-- {
-			if p.afe[j].Type() == scopeMarkerNode {
+			if p.afe[j].GetType() == scopeMarkerNode {
 				break
 			}
-			if p.afe[j].DataAtom() == tagAtom {
+			if p.afe[j].GetDataAtom() == tagAtom {
 				formattingElement = p.afe[j]
 				break
 			}
@@ -1121,8 +1121,8 @@ func (p *parser) inBodyEndTagFormatting(tagAtom a.Atom) {
 				bookmark = p.afe.index(node) + 1
 			}
 			// Step 9.9.
-			if lastNode.Parent() != nil {
-				RemoveChild(lastNode.Parent(), lastNode)
+			if lastNode.GetParent() != nil {
+				RemoveChild(lastNode.GetParent(), lastNode)
 			}
 			AppendChild(node, lastNode)
 			// Step 9.10.
@@ -1131,10 +1131,10 @@ func (p *parser) inBodyEndTagFormatting(tagAtom a.Atom) {
 
 		// Step 10. Reparent lastNode to the common ancestor,
 		// or for misnested table nodes, to the foster parent.
-		if lastNode.Parent() != nil {
-			RemoveChild(lastNode.Parent(), lastNode)
+		if lastNode.GetParent() != nil {
+			RemoveChild(lastNode.GetParent(), lastNode)
 		}
-		switch commonAncestor.DataAtom() {
+		switch commonAncestor.GetDataAtom() {
 		case a.Table, a.Tbody, a.Tfoot, a.Thead, a.Tr:
 			p.fosterParent(lastNode)
 		default:
@@ -1164,7 +1164,7 @@ func (p *parser) inBodyEndTagFormatting(tagAtom a.Atom) {
 // inBodyEndTagOther performs the "any other end tag" algorithm for inBodyIM.
 func (p *parser) inBodyEndTagOther(tagAtom a.Atom) {
 	for i := len(p.oe) - 1; i >= 0; i-- {
-		if p.oe[i].DataAtom() == tagAtom {
+		if p.oe[i].GetDataAtom() == tagAtom {
 			p.oe = p.oe[:i]
 			break
 		}
@@ -1181,7 +1181,7 @@ func textIM(p *parser) bool {
 		p.oe.pop()
 	case TextToken:
 		d := p.tok.Data
-		if n := p.oe.top(); n.DataAtom() == a.Textarea && n.FirstChild() == nil {
+		if n := p.oe.top(); n.GetDataAtom() == a.Textarea && n.GetFirstChild() == nil {
 			// Ignore a newline at the start of a <textarea> block.
 			if d != "" && d[0] == '\r' {
 				d = d[1:]
@@ -1211,7 +1211,7 @@ func inTableIM(p *parser) bool {
 		return true
 	case TextToken:
 		p.tok.Data = strings.Replace(p.tok.Data, "\x00", "", -1)
-		switch p.oe.top().DataAtom() {
+		switch p.oe.top().GetDataAtom() {
 		case a.Table, a.Tbody, a.Tfoot, a.Thead, a.Tr:
 			if strings.Trim(p.tok.Data, whitespace) == "" {
 				p.addText(p.tok.Data)
@@ -1269,7 +1269,7 @@ func inTableIM(p *parser) bool {
 			p.form = p.oe.pop()
 		case a.Select:
 			p.reconstructActiveFormattingElements()
-			switch p.top().DataAtom() {
+			switch p.top().GetDataAtom() {
 			case a.Table, a.Tbody, a.Tfoot, a.Thead, a.Tr:
 				p.fosterParenting = true
 			}
@@ -1294,8 +1294,8 @@ func inTableIM(p *parser) bool {
 		}
 	case CommentToken:
 		p.addChild(p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data:     p.tok.Data,
+			Type: CommentNode,
+			Data:     p.tok.Data,
 		}))
 		return true
 	case DoctypeToken:
@@ -1370,8 +1370,8 @@ func inColumnGroupIM(p *parser) bool {
 		}
 	case CommentToken:
 		p.addChild(p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data: p.tok.Data,
+			Type: CommentNode,
+			Data: p.tok.Data,
 		}))
 		return true
 	case DoctypeToken:
@@ -1390,7 +1390,7 @@ func inColumnGroupIM(p *parser) bool {
 	case EndTagToken:
 		switch p.tok.DataAtom {
 		case a.Colgroup:
-			if p.oe.top().DataAtom() != a.Html {
+			if p.oe.top().GetDataAtom() != a.Html {
 				p.oe.pop()
 				p.im = inTableIM
 			}
@@ -1400,7 +1400,7 @@ func inColumnGroupIM(p *parser) bool {
 			return true
 		}
 	}
-	if p.oe.top().DataAtom() != a.Html {
+	if p.oe.top().GetDataAtom() != a.Html {
 		p.oe.pop()
 		p.im = inTableIM
 		return false
@@ -1451,8 +1451,8 @@ func inTableBodyIM(p *parser) bool {
 		}
 	case CommentToken:
 		p.addChild(p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data:     p.tok.Data,
+			Type: CommentNode,
+			Data:     p.tok.Data,
 		}))
 		return true
 	}
@@ -1573,15 +1573,15 @@ func inSelectIM(p *parser) bool {
 		case a.Html:
 			return inBodyIM(p)
 		case a.Option:
-			if p.top().DataAtom() == a.Option {
+			if p.top().GetDataAtom() == a.Option {
 				p.oe.pop()
 			}
 			p.addElement()
 		case a.Optgroup:
-			if p.top().DataAtom() == a.Option {
+			if p.top().GetDataAtom() == a.Option {
 				p.oe.pop()
 			}
-			if p.top().DataAtom() == a.Optgroup {
+			if p.top().GetDataAtom() == a.Optgroup {
 				p.oe.pop()
 			}
 			p.addElement()
@@ -1603,15 +1603,15 @@ func inSelectIM(p *parser) bool {
 	case EndTagToken:
 		switch p.tok.DataAtom {
 		case a.Option:
-			if p.top().DataAtom() == a.Option {
+			if p.top().GetDataAtom() == a.Option {
 				p.oe.pop()
 			}
 		case a.Optgroup:
 			i := len(p.oe) - 1
-			if p.oe[i].DataAtom() == a.Option {
+			if p.oe[i].GetDataAtom() == a.Option {
 				i--
 			}
-			if p.oe[i].DataAtom() == a.Optgroup {
+			if p.oe[i].GetDataAtom() == a.Optgroup {
 				p.oe = p.oe[:i]
 			}
 		case a.Select:
@@ -1621,8 +1621,8 @@ func inSelectIM(p *parser) bool {
 		}
 	case CommentToken:
 		AppendChild(p.doc, p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data:     p.tok.Data,
+			Type: CommentNode,
+			Data:     p.tok.Data,
 		}))
 	case DoctypeToken:
 		// Ignore the token.
@@ -1675,12 +1675,12 @@ func afterBodyIM(p *parser) bool {
 		}
 	case CommentToken:
 		// The comment is attached to the <html> element.
-		if len(p.oe) < 1 || p.oe[0].DataAtom() != a.Html {
+		if len(p.oe) < 1 || p.oe[0].GetDataAtom() != a.Html {
 			panic("html: bad parser state: <html> element not found, in the after-body insertion mode")
 		}
 		AppendChild(p.oe[0], p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data:     p.tok.Data,
+			Type: CommentNode,
+			Data:     p.tok.Data,
 		}))
 		return true
 	}
@@ -1693,8 +1693,8 @@ func inFramesetIM(p *parser) bool {
 	switch p.tok.Type {
 	case CommentToken:
 		p.addChild(p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data:     p.tok.Data,
+			Type: CommentNode,
+			Data:     p.tok.Data,
 		}))
 	case TextToken:
 		// Ignore all text but whitespace.
@@ -1724,9 +1724,9 @@ func inFramesetIM(p *parser) bool {
 	case EndTagToken:
 		switch p.tok.DataAtom {
 		case a.Frameset:
-			if p.oe.top().DataAtom() != a.Html {
+			if p.oe.top().GetDataAtom() != a.Html {
 				p.oe.pop()
-				if p.oe.top().DataAtom() != a.Frameset {
+				if p.oe.top().GetDataAtom() != a.Frameset {
 					p.im = afterFramesetIM
 					return true
 				}
@@ -1743,8 +1743,8 @@ func afterFramesetIM(p *parser) bool {
 	switch p.tok.Type {
 	case CommentToken:
 		p.addChild(p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data:     p.tok.Data,
+			Type: CommentNode,
+			Data:     p.tok.Data,
 		}))
 	case TextToken:
 		// Ignore all text but whitespace.
@@ -1795,8 +1795,8 @@ func afterAfterBodyIM(p *parser) bool {
 		}
 	case CommentToken:
 		AppendChild(p.doc, p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data:     p.tok.Data,
+			Type: CommentNode,
+			Data:     p.tok.Data,
 		}))
 		return true
 	case DoctypeToken:
@@ -1811,8 +1811,8 @@ func afterAfterFramesetIM(p *parser) bool {
 	switch p.tok.Type {
 	case CommentToken:
 		AppendChild(p.doc, p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data:     p.tok.Data,
+			Type: CommentNode,
+			Data:     p.tok.Data,
 		}))
 	case TextToken:
 		// Ignore all text but whitespace.
@@ -1855,8 +1855,8 @@ func parseForeignContent(p *parser) bool {
 		p.addText(p.tok.Data)
 	case CommentToken:
 		p.addChild(p.lookup(&NodeStruct{
-			nodeType: CommentNode,
-			data:     p.tok.Data,
+			Type: CommentNode,
+			Data:     p.tok.Data,
 		}))
 	case StartTagToken:
 		b := breakout[p.tok.Data]
@@ -1873,14 +1873,14 @@ func parseForeignContent(p *parser) bool {
 		if b {
 			for i := len(p.oe) - 1; i >= 0; i-- {
 				n := p.oe[i]
-				if n.Namespace() == "" || htmlIntegrationPoint(n) || mathMLTextIntegrationPoint(n) {
+				if n.GetNamespace() == "" || htmlIntegrationPoint(n) || mathMLTextIntegrationPoint(n) {
 					p.oe = p.oe[:i+1]
 					break
 				}
 			}
 			return false
 		}
-		switch p.top().Namespace() {
+		switch p.top().GetNamespace() {
 		case "math":
 			adjustAttributeNames(p.tok.Attr, mathMLAttributeAdjustments)
 		case "svg":
@@ -1895,7 +1895,7 @@ func parseForeignContent(p *parser) bool {
 			panic("html: bad parser state: unexpected namespace")
 		}
 		adjustForeignAttributes(p.tok.Attr)
-		namespace := p.top().Namespace()
+		namespace := p.top().GetNamespace()
 		p.addElement()
 		p.top().SetNamespace(namespace)
 		if namespace != "" {
@@ -1909,10 +1909,10 @@ func parseForeignContent(p *parser) bool {
 		}
 	case EndTagToken:
 		for i := len(p.oe) - 1; i >= 0; i-- {
-			if p.oe[i].Namespace() == "" {
+			if p.oe[i].GetNamespace() == "" {
 				return p.im(p)
 			}
-			if strings.EqualFold(p.oe[i].Data(), p.tok.Data) {
+			if strings.EqualFold(p.oe[i].GetData(), p.tok.Data) {
 				p.oe = p.oe[:i]
 				break
 			}
@@ -1930,7 +1930,7 @@ func (p *parser) inForeignContent() bool {
 		return false
 	}
 	n := p.oe[len(p.oe)-1]
-	if n.Namespace() == "" {
+	if n.GetNamespace() == "" {
 		return false
 	}
 	if mathMLTextIntegrationPoint(n) {
@@ -1941,7 +1941,7 @@ func (p *parser) inForeignContent() bool {
 			return false
 		}
 	}
-	if n.Namespace() == "math" && n.DataAtom() == a.AnnotationXml && p.tok.Type == StartTagToken && p.tok.DataAtom == a.Svg {
+	if n.GetNamespace() == "math" && n.GetDataAtom() == a.AnnotationXml && p.tok.Type == StartTagToken && p.tok.DataAtom == a.Svg {
 		return false
 	}
 	if htmlIntegrationPoint(n) && (p.tok.Type == StartTagToken || p.tok.Type == TextToken) {
@@ -1996,7 +1996,7 @@ func (p *parser) parse() error {
 	for err != io.EOF {
 		// CDATA sections are allowed only in foreign content.
 		n := p.oe.top()
-		p.tokenizer.AllowCDATA(n != nil && n.Namespace() != "")
+		p.tokenizer.AllowCDATA(n != nil && n.GetNamespace() != "")
 		// Read and parse the next token.
 		p.tokenizer.Next()
 		p.tok = p.tokenizer.Token()
@@ -2017,7 +2017,7 @@ func Parse(r io.Reader, lookup func(node *NodeStruct) Node) (Node, error) {
 	p := &parser{
 		tokenizer: NewTokenizer(r),
 		doc: lookup(&NodeStruct{
-			nodeType: DocumentNode,
+			Type: DocumentNode,
 		}),
 		scripting:  true,
 		framesetOK: true,
@@ -2037,21 +2037,21 @@ func Parse(r io.Reader, lookup func(node *NodeStruct) Node) (Node, error) {
 func ParseFragment(r io.Reader, context Node, lookup func(node *NodeStruct) Node) ([]Node, error) {
 	contextTag := ""
 	if context != nil {
-		if context.Type() != ElementNode {
+		if context.GetType() != ElementNode {
 			return nil, errors.New("html: ParseFragment of non-element Node")
 		}
-		// The next check isn't just context.DataAtom().String() == context.Data because
+		// The next check isn't just context.GetDataAtom().String() == context.Data because
 		// it is valid to pass an element whose tag isn't a known atom. For example,
 		// DataAtom == 0 and Data = "tagfromthefuture" is perfectly consistent.
-		if context.DataAtom() != a.Lookup([]byte(context.Data())) {
-			return nil, fmt.Errorf("html: inconsistent Node: DataAtom=%q, Data=%q", context.DataAtom, context.Data)
+		if context.GetDataAtom() != a.Lookup([]byte(context.GetData())) {
+			return nil, fmt.Errorf("html: inconsistent Node: DataAtom=%q, Data=%q", context.GetDataAtom(), context.GetData())
 		}
-		contextTag = context.DataAtom().String()
+		contextTag = context.GetDataAtom().String()
 	}
 	p := &parser{
 		tokenizer: NewTokenizerFragment(r, contextTag),
 		doc: lookup(&NodeStruct{
-			nodeType: DocumentNode,
+			Type: DocumentNode,
 		}),
 		scripting: true,
 		fragment:  true,
@@ -2060,16 +2060,16 @@ func ParseFragment(r io.Reader, context Node, lookup func(node *NodeStruct) Node
 	}
 
 	root := p.lookup(&NodeStruct{
-		nodeType: ElementNode,
-		dataAtom: a.Html,
-		data:     a.Html.String(),
+		Type: ElementNode,
+		DataAtom: a.Html,
+		Data:     a.Html.String(),
 	})
 	AppendChild(p.doc, root)
 	p.oe = nodeStack{root}
 	p.resetInsertionMode()
 
-	for n := context; n != nil; n = n.Parent() {
-		if n.Type() == ElementNode && n.DataAtom() == a.Form {
+	for n := context; n != nil; n = n.GetParent() {
+		if n.GetType() == ElementNode && n.GetDataAtom() == a.Form {
 			p.form = n
 			break
 		}
@@ -2086,8 +2086,8 @@ func ParseFragment(r io.Reader, context Node, lookup func(node *NodeStruct) Node
 	}
 
 	var result []Node
-	for c := parent.FirstChild(); c != nil; {
-		next := c.NextSibling()
+	for c := parent.GetFirstChild(); c != nil; {
+		next := c.GetNextSibling()
 		RemoveChild(parent, c)
 		result = append(result, c)
 		c = next

@@ -22,11 +22,11 @@ const (
 )
 
 type Node interface {
-	Parent() Node
-	FirstChild() Node
-	LastChild() Node
-	PrevSibling() Node
-	NextSibling() Node
+	GetParent() Node
+	GetFirstChild() Node
+	GetLastChild() Node
+	GetPrevSibling() Node
+	GetNextSibling() Node
 
 	SetParent(el Node)
 	SetFirstChild(el Node)
@@ -34,11 +34,11 @@ type Node interface {
 	SetPrevSibling(el Node)
 	SetNextSibling(el Node)
 
-	Type() NodeType
-	DataAtom() atom.Atom
-	Data() string
-	Namespace() string
-	Attr() []Attribute
+	GetType() NodeType
+	GetDataAtom() atom.Atom
+	GetData() string
+	GetNamespace() string
+	GetAttr() []Attribute
 
 	SetType(nodeType NodeType)
 	SetDataAtom(dataAtom atom.Atom)
@@ -55,7 +55,7 @@ type Node interface {
 // Section 12.2.3.3 says "scope markers are inserted when entering applet
 // elements, buttons, object elements, marquees, table cells, and table
 // captions, and are used to prevent formatting from 'leaking'".
-var scopeMarker = NodeStruct{nodeType: scopeMarkerNode}
+var scopeMarker = NodeStruct{Type: scopeMarkerNode}
 
 // A Node consists of a NodeType and some Data (tag name for element nodes,
 // content for text) and are part of a tree of Nodes. Element nodes may also
@@ -67,34 +67,34 @@ var scopeMarker = NodeStruct{nodeType: scopeMarkerNode}
 // Similarly, "math" is short for "http://www.w3.org/1998/Math/MathML", and
 // "svg" is short for "http://www.w3.org/2000/svg".
 type NodeStruct struct {
-	parent, firstChild, lastChild, prevSibling, nextSibling Node
+	Parent, FirstChild, LastChild, PrevSibling, NextSibling Node
 
-	nodeType  NodeType
-	dataAtom  atom.Atom
-	data      string
-	namespace string
-	attr      []Attribute
+	Type  NodeType
+	DataAtom  atom.Atom
+	Data      string
+	Namespace string
+	Attr      []Attribute
 }
-func (n *NodeStruct) Parent() Node {return n.parent}
-func (n *NodeStruct) FirstChild() Node {return n.firstChild}
-func (n *NodeStruct) LastChild() Node {return n.lastChild}
-func (n *NodeStruct) PrevSibling() Node {return n.prevSibling}
-func (n *NodeStruct) NextSibling() Node {return n.nextSibling}
-func (n *NodeStruct) SetParent(el Node) {n.parent = el}
-func (n *NodeStruct) SetFirstChild(el Node) {n.firstChild = el}
-func (n *NodeStruct) SetLastChild(el Node) {n.lastChild = el}
-func (n *NodeStruct) SetPrevSibling(el Node) {n.prevSibling = el}
-func (n *NodeStruct) SetNextSibling(el Node) {n.nextSibling = el}
-func (n *NodeStruct) Type() NodeType {return n.nodeType}
-func (n *NodeStruct) DataAtom() atom.Atom {return n.dataAtom}
-func (n *NodeStruct) Data() string {return n.data}
-func (n *NodeStruct) Namespace() string {return n.namespace}
-func (n *NodeStruct) Attr() []Attribute {return n.attr}
-func (n *NodeStruct) SetType(nodeType NodeType) {n.nodeType = nodeType}
-func (n *NodeStruct) SetDataAtom(dataAtom atom.Atom) {n.dataAtom = dataAtom}
-func (n *NodeStruct) SetData(data string) {n.data = data}
-func (n *NodeStruct) SetNamespace(namespace string) {n.namespace = namespace}
-func (n *NodeStruct) SetAttr(attr []Attribute) {n.attr = attr}
+func (n *NodeStruct) GetParent() Node {return n.Parent}
+func (n *NodeStruct) GetFirstChild() Node {return n.FirstChild}
+func (n *NodeStruct) GetLastChild() Node {return n.LastChild}
+func (n *NodeStruct) GetPrevSibling() Node {return n.PrevSibling}
+func (n *NodeStruct) GetNextSibling() Node {return n.NextSibling}
+func (n *NodeStruct) SetParent(el Node) {n.Parent = el}
+func (n *NodeStruct) SetFirstChild(el Node) {n.FirstChild = el}
+func (n *NodeStruct) SetLastChild(el Node) {n.LastChild = el}
+func (n *NodeStruct) SetPrevSibling(el Node) {n.PrevSibling = el}
+func (n *NodeStruct) SetNextSibling(el Node) {n.NextSibling = el}
+func (n *NodeStruct) GetType() NodeType {return n.Type}
+func (n *NodeStruct) GetDataAtom() atom.Atom {return n.DataAtom}
+func (n *NodeStruct) GetData() string {return n.Data}
+func (n *NodeStruct) GetNamespace() string {return n.Namespace}
+func (n *NodeStruct) GetAttr() []Attribute {return n.Attr}
+func (n *NodeStruct) SetType(nodeType NodeType) {n.Type = nodeType}
+func (n *NodeStruct) SetDataAtom(dataAtom atom.Atom) {n.DataAtom = dataAtom}
+func (n *NodeStruct) SetData(data string) {n.Data = data}
+func (n *NodeStruct) SetNamespace(namespace string) {n.Namespace = namespace}
+func (n *NodeStruct) SetAttr(attr []Attribute) {n.Attr = attr}
 
 // InsertBefore inserts newChild as a child of n, immediately before oldChild
 // in the sequence of n's children. oldChild may be nil, in which case newChild
@@ -102,14 +102,14 @@ func (n *NodeStruct) SetAttr(attr []Attribute) {n.attr = attr}
 //
 // It will panic if newChild already has a parent or siblings.
 func InsertBefore(node, newChild, oldChild Node) {
-	if newChild.Parent() != nil || newChild.PrevSibling() != nil || newChild.NextSibling() != nil {
+	if newChild.GetParent() != nil || newChild.GetPrevSibling() != nil || newChild.GetNextSibling() != nil {
 		panic("html: InsertBefore called for an attached child Node")
 	}
 	var prev, next Node
 	if oldChild != nil {
-		prev, next = oldChild.PrevSibling(), oldChild
+		prev, next = oldChild.GetPrevSibling(), oldChild
 	} else {
-		prev = node.LastChild()
+		prev = node.GetLastChild()
 	}
 	if prev != nil {
 		prev.SetNextSibling(newChild)
@@ -130,10 +130,10 @@ func InsertBefore(node, newChild, oldChild Node) {
 //
 // It will panic if c already has a parent or siblings.
 func AppendChild(node, child Node) {
-	if child.Parent() != nil || child.PrevSibling() != nil || child.NextSibling() != nil {
+	if child.GetParent() != nil || child.GetPrevSibling() != nil || child.GetNextSibling() != nil {
 		panic("html: AppendChild called for an attached child Node")
 	}
-	last := node.LastChild()
+	last := node.GetLastChild()
 	if last != nil {
 		last.SetNextSibling(child)
 	} else {
@@ -149,20 +149,20 @@ func AppendChild(node, child Node) {
 //
 // It will panic if c's parent is not n.
 func RemoveChild(node, child Node) {
-	if child.Parent() != node {
+	if child.GetParent() != node {
 		panic("html: RemoveChild called for a non-child Node")
 	}
-	if node.FirstChild() == child {
-		node.SetFirstChild(child.NextSibling())
+	if node.GetFirstChild() == child {
+		node.SetFirstChild(child.GetNextSibling())
 	}
-	if child.NextSibling() != nil {
-		child.NextSibling().SetPrevSibling(child.PrevSibling())
+	if child.GetNextSibling() != nil {
+		child.GetNextSibling().SetPrevSibling(child.GetPrevSibling())
 	}
-	if node.LastChild() == child {
-		node.SetLastChild(child.PrevSibling())
+	if node.GetLastChild() == child {
+		node.SetLastChild(child.GetPrevSibling())
 	}
-	if child.PrevSibling() != nil {
-		child.PrevSibling().SetNextSibling(child.NextSibling())
+	if child.GetPrevSibling() != nil {
+		child.GetPrevSibling().SetNextSibling(child.GetNextSibling())
 	}
 	child.SetParent(nil)
 	child.SetPrevSibling(nil)
@@ -172,7 +172,7 @@ func RemoveChild(node, child Node) {
 // reparentChildren reparents all of src's child nodes to dst.
 func reparentChildren(dst, src Node) {
 	for {
-		child := src.FirstChild()
+		child := src.GetFirstChild()
 		if child == nil {
 			break
 		}
@@ -185,14 +185,14 @@ func reparentChildren(dst, src Node) {
 // The clone has no parent, no siblings and no children.
 func (n *NodeStruct) clone(lookup func(node *NodeStruct) Node) Node {
 
-	attr := make([]Attribute, len(n.Attr()))
-	copy(attr, n.Attr())
+	attr := make([]Attribute, len(n.GetAttr()))
+	copy(attr, n.GetAttr())
 
 	m := lookup(&NodeStruct{
-		nodeType: n.Type(),
-		dataAtom: n.DataAtom(),
-		data:     n.Data(),
-		attr:     attr,
+		Type: n.GetType(),
+		DataAtom: n.GetDataAtom(),
+		Data:     n.GetData(),
+		Attr:     attr,
 	})
 	return m
 }

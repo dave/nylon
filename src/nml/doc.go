@@ -80,10 +80,10 @@ example, to process each anchor node in depth-first order:
 	}
 	var f func(*html.Node)
 	f = func(n *html.Node) {
-		if n.Type() == html.ElementNode && n.Data() == "a" {
+		if n.GetType() == html.ElementNode && n.GetData() == "a" {
 			// Do something with n...
 		}
-		for c := n.FirstChild(); c != nil; c = c.NextSibling() {
+		for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
 			f(c)
 		}
 	}
