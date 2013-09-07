@@ -108,9 +108,9 @@ func setAttributeValue(attrName string, attrValue string, n nml.Node) {
 
 	attr := n.GetAttr()
 
-	for _, a := range attr {
-		if a.Key == attrName {
-			a.Val = attrValue
+	for i := range attr {
+		if attr[i].Key == attrName {
+			attr[i].Val = attrValue
 			n.SetAttr(attr)
 			return
 		}

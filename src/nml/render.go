@@ -66,7 +66,7 @@ func render(w writer, n Node) error {
 }
 
 func render1(w writer, n Node) error {
-	n.BeforeRender()
+	n.Render()
 	// Render non-element nodes; these are the easy cases.
 	switch n.GetType() {
 	case ErrorNode:

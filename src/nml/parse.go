@@ -2028,6 +2028,10 @@ func Parse(r io.Reader, lookup func(node *NodeStruct) Node) (Node, error) {
 	if err != nil {
 		return nil, err
 	}
+	err = p.doc.Init()
+	if err != nil {
+		return nil, err
+	}
 	return p.doc, nil
 }
 
@@ -2092,5 +2096,14 @@ func ParseFragment(r io.Reader, context Node, lookup func(node *NodeStruct) Node
 		result = append(result, c)
 		c = next
 	}
+	for i := range result {
+		err := result[i].Init()
+		if err != nil {
+			return nil, err
+		}
+	}
 	return result, nil
+}
+func ParseFragmentBody(r io.Reader, lookup func(node *NodeStruct) Node) ([]Node, error) {
+	return ParseFragment(r, lookup(&NodeStruct { Type: ElementNode, Data: "body", DataAtom: a.Body }), lookup)
 }

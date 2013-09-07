@@ -48,7 +48,8 @@ type Node interface {
 
 	clone(lookup func(node *NodeStruct) Node) Node
 
-	BeforeRender()
+	Init() error
+	Render()
 }
 
 
@@ -95,6 +96,16 @@ func (n *NodeStruct) SetDataAtom(dataAtom atom.Atom) {n.DataAtom = dataAtom}
 func (n *NodeStruct) SetData(data string) {n.Data = data}
 func (n *NodeStruct) SetNamespace(namespace string) {n.Namespace = namespace}
 func (n *NodeStruct) SetAttr(attr []Attribute) {n.Attr = attr}
+func (n *NodeStruct) Render() { }
+func (n *NodeStruct) Init() error {
+	for c := n.GetFirstChild(); c != nil; c = c.GetNextSibling() {
+		err := c.Init()
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
 // InsertBefore inserts newChild as a child of n, immediately before oldChild
 // in the sequence of n's children. oldChild may be nil, in which case newChild
@@ -142,6 +153,11 @@ func AppendChild(node, child Node) {
 	node.SetLastChild(child)
 	child.SetParent(node)
 	child.SetPrevSibling(last)
+}
+func AppendChildren(node Node, children []Node) {
+	for i := range children {
+		AppendChild(node, children[i])
+	}
 }
 
 // RemoveChild removes a node c that is a child of n. Afterwards, c will have
