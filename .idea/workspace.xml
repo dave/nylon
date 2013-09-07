@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" name="Default" comment="" />
+    <list default="true" id="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tags/_index.go" afterPath="$PROJECT_DIR$/src/tags/lookup.go" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/tags/_raw.go" afterPath="$PROJECT_DIR$/src/tags/default.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="nylon.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/store.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378051157921" ignored="false" />
@@ -9,7 +13,7 @@
     <file path="/hello.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376664126139" ignored="false" />
     <file path="/.gitignore" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376656866596" ignored="false" />
     <file path="/README.md" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376656936241" ignored="false" />
-    <file path="/Dummy.txt" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378531888840" ignored="false" />
+    <file path="/Dummy.txt" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378537232886" ignored="false" />
     <file path="/render.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378049632011" ignored="false" />
     <file path="/root.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376668255382" ignored="false" />
     <file path="$PROJECT_DIR$/../test/src/main.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376665373123" ignored="false" />
@@ -17,11 +21,11 @@
     <file path="/page.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376669308435" ignored="false" />
     <file path="/node.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378050755125" ignored="false" />
     <file path="/common.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376675335544" ignored="false" />
-    <file path="/init.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378535668053" ignored="false" />
+    <file path="/init.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378538018766" ignored="false" />
     <file path="/a.dummy" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378532746094" ignored="false" />
     <file path="/image.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376677462298" ignored="false" />
     <file path="/raw.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376676487200" ignored="false" />
-    <file path="/default.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378321922744" ignored="false" />
+    <file path="/default.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378538053933" ignored="false" />
     <file path="/parse.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378050615397" ignored="false" />
     <file path="/doctype.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378050762070" ignored="false" />
     <file path="/my-tag.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378535441676" ignored="false" />
@@ -33,6 +37,7 @@
     <file path="/query.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378533200143" ignored="false" />
     <file path="/_index.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378535606241" ignored="false" />
     <file path="/_raw.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378535646192" ignored="false" />
+    <file path="/_lookup.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378538061757" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,19 +101,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_raw.go" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tags/_raw.go">
+      <file leaf-file-name="default.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tags/default.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
+            <state line="6" column="12" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_index.go" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tags/_index.go">
+      <file leaf-file-name="lookup.go" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tags/lookup.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
+            <state line="14" column="0" selection-start="180" selection-end="180" vertical-scroll-proportion="0.3322785">
               <folding />
             </state>
           </provider>
@@ -117,16 +122,16 @@
       <file leaf-file-name="init.go" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/root/init.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="42" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
+            <state line="23" column="5" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my-tag.go" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="my-tag.go" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tags/my-tag.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="1" selection-start="203" selection-end="203" vertical-scroll-proportion="0.3809524">
+            <state line="16" column="1" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -186,11 +191,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/nml/parse.go" />
-        <option value="$PROJECT_DIR$/src/nml/node.go" />
         <option value="$PROJECT_DIR$/src/nml/doctype.go" />
         <option value="$PROJECT_DIR$/src/store/store.go" />
-        <option value="$PROJECT_DIR$/src/tags/default.go" />
         <option value="$PROJECT_DIR$/src/cascadia/parser.go" />
         <option value="$PROJECT_DIR$/src/cascadia/selector.go" />
         <option value="$PROJECT_DIR$/src/goquery/traversal.go" />
@@ -199,9 +201,12 @@
         <option value="$PROJECT_DIR$/src/goquery/property.go" />
         <option value="$PROJECT_DIR$/src/tags/_index.go" />
         <option value="$PROJECT_DIR$/src/tags/_raw.go" />
-        <option value="$PROJECT_DIR$/src/root/init.go" />
         <option value="$PROJECT_DIR$/src/common/common.go" />
         <option value="$PROJECT_DIR$/src/tags/my-tag.go" />
+        <option value="$PROJECT_DIR$/src/tags/_lookup.go" />
+        <option value="$PROJECT_DIR$/src/root/init.go" />
+        <option value="$PROJECT_DIR$/src/tags/default.go" />
+        <option value="$PROJECT_DIR$/src/tags/lookup.go" />
       </list>
     </option>
   </component>
@@ -237,6 +242,53 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Default">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="nylon">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tags">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="nylon">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="nylon">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -287,10 +339,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nylon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nylon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,8 +376,8 @@
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -320,12 +388,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Go Application.Build">
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <method />
-    </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <option name="name" value="Go application" />
       <option name="saveOutputToFile" value="false" />
@@ -337,25 +399,18 @@
       <module name="" />
       <method />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -383,6 +438,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -479,13 +547,11 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38297874" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.50042623" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32826748" sideWeight="0.49957374" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -494,6 +560,8 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38297874" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32826748" sideWeight="0.49957374" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -563,11 +631,16 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/goquery/README.md">
+    <entry file="file://$PROJECT_DIR$/src/nml/node.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="17" selection-start="6154" selection-end="6154" vertical-scroll-proportion="0.75688815">
+        <state line="40" column="4" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/goquery/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="17" selection-start="6154" selection-end="6154" vertical-scroll-proportion="0.75688815" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/store/store.go">
@@ -640,30 +713,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/root/init.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="42" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tags/_index.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tags/_raw.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tags/my-tag.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="1" selection-start="203" selection-end="203" vertical-scroll-proportion="0.3809524">
+        <state line="16" column="1" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tags/default.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="12" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/root/init.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="5" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tags/lookup.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="180" selection-end="180" vertical-scroll-proportion="0.3322785">
           <folding />
         </state>
       </provider>

@@ -9,6 +9,6 @@ func Index(node *nml.NodeStruct) nml.Node {
 	case "my-tag":
 		return &My_Tag{node}
 	default:
-		return &Raw{node}
+		return &Default{node}
 	}
 }
