@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nml/const.go" afterPath="$PROJECT_DIR$/src/nml/const.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tags/default.go" afterPath="$PROJECT_DIR$/src/tags/default.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nml/doc.go" afterPath="$PROJECT_DIR$/src/nml/doc.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nml/doctype.go" afterPath="$PROJECT_DIR$/src/nml/doctype.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nml/example_test.go" afterPath="$PROJECT_DIR$/src/nml/example_test.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nml/foreign.go" afterPath="$PROJECT_DIR$/src/nml/foreign.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tags/my-tag.go" afterPath="$PROJECT_DIR$/src/tags/my-tag.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nml/node.go" afterPath="$PROJECT_DIR$/src/nml/node.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/root/node.go" afterPath="$PROJECT_DIR$/src/root/node.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nml/node_test.go" afterPath="$PROJECT_DIR$/src/nml/node_test.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nml/parse.go" afterPath="$PROJECT_DIR$/src/nml/parse.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nml/parse_test.go" afterPath="$PROJECT_DIR$/src/nml/parse_test.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nml/render.go" afterPath="$PROJECT_DIR$/src/nml/render.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/store.go" afterPath="$PROJECT_DIR$/src/store/store.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" name="Default" comment="" />
     <ignored path="nylon.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/store.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378051157921" ignored="false" />
@@ -25,7 +9,7 @@
     <file path="/hello.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376664126139" ignored="false" />
     <file path="/.gitignore" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376656866596" ignored="false" />
     <file path="/README.md" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376656936241" ignored="false" />
-    <file path="/Dummy.txt" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378032985257" ignored="false" />
+    <file path="/Dummy.txt" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378531888840" ignored="false" />
     <file path="/render.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378049632011" ignored="false" />
     <file path="/root.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376668255382" ignored="false" />
     <file path="$PROJECT_DIR$/../test/src/main.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376665373123" ignored="false" />
@@ -33,15 +17,22 @@
     <file path="/page.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376669308435" ignored="false" />
     <file path="/node.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378050755125" ignored="false" />
     <file path="/common.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376675335544" ignored="false" />
-    <file path="/init.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378042390409" ignored="false" />
-    <file path="/a.dummy" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378050132931" ignored="false" />
+    <file path="/init.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378535668053" ignored="false" />
+    <file path="/a.dummy" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378532746094" ignored="false" />
     <file path="/image.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376677462298" ignored="false" />
     <file path="/raw.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1376676487200" ignored="false" />
-    <file path="/default.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378051238332" ignored="false" />
+    <file path="/default.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378321922744" ignored="false" />
     <file path="/parse.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378050615397" ignored="false" />
     <file path="/doctype.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378050762070" ignored="false" />
-    <file path="/my-tag.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378050932777" ignored="false" />
+    <file path="/my-tag.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378535441676" ignored="false" />
     <file path="/token.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378040409432" ignored="false" />
+    <file path="/traversal.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378532958259" ignored="false" />
+    <file path="/selector.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378532717630" ignored="false" />
+    <file path="/property.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378535367679" ignored="false" />
+    <file path="/utilities.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378533192554" ignored="false" />
+    <file path="/query.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378533200143" ignored="false" />
+    <file path="/_index.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378535606241" ignored="false" />
+    <file path="/_raw.go" changelist="7ef53bd8-6b2e-4ea1-9e9e-1e8d30a6701d" time="1378535646192" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,10 +96,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="default.go" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tags/default.go">
+      <file leaf-file-name="_raw.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tags/_raw.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="44" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0">
+            <state line="13" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_index.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tags/_index.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/root/init.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="42" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -117,7 +126,43 @@
       <file leaf-file-name="my-tag.go" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tags/my-tag.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="199" selection-end="199" vertical-scroll-proportion="0.30952382">
+            <state line="16" column="1" selection-start="203" selection-end="203" vertical-scroll-proportion="0.3809524">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="property.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/goquery/property.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="117" column="27" selection-start="2811" selection-end="2811" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="token.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/nml/token.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="5" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="builtin.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file:///usr/local/go/src/pkg/builtin/builtin.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="133" column="5" selection-start="4721" selection-end="4721" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="node.go" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/nml/node.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="4" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,22 +186,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/root/init.go" />
-        <option value="$PROJECT_DIR$/src/nhtml/doctype.go" />
-        <option value="$PROJECT_DIR$/src/nhtml/node.go" />
-        <option value="$PROJECT_DIR$/src/nhtml/parse.go" />
-        <option value="$PROJECT_DIR$/src/nhtml/const.go" />
-        <option value="$PROJECT_DIR$/src/nml/render.go" />
-        <option value="$PROJECT_DIR$/src/nml/doc.go" />
-        <option value="$PROJECT_DIR$/src/nml/example_test.go" />
-        <option value="$PROJECT_DIR$/src/nml/foreign.go" />
-        <option value="$PROJECT_DIR$/src/nml/const.go" />
         <option value="$PROJECT_DIR$/src/nml/parse.go" />
         <option value="$PROJECT_DIR$/src/nml/node.go" />
         <option value="$PROJECT_DIR$/src/nml/doctype.go" />
-        <option value="$PROJECT_DIR$/src/tags/my-tag.go" />
         <option value="$PROJECT_DIR$/src/store/store.go" />
         <option value="$PROJECT_DIR$/src/tags/default.go" />
+        <option value="$PROJECT_DIR$/src/cascadia/parser.go" />
+        <option value="$PROJECT_DIR$/src/cascadia/selector.go" />
+        <option value="$PROJECT_DIR$/src/goquery/traversal.go" />
+        <option value="$PROJECT_DIR$/src/goquery/utilities.go" />
+        <option value="$PROJECT_DIR$/src/goquery/query.go" />
+        <option value="$PROJECT_DIR$/src/goquery/property.go" />
+        <option value="$PROJECT_DIR$/src/tags/_index.go" />
+        <option value="$PROJECT_DIR$/src/tags/_raw.go" />
+        <option value="$PROJECT_DIR$/src/root/init.go" />
+        <option value="$PROJECT_DIR$/src/common/common.go" />
+        <option value="$PROJECT_DIR$/src/tags/my-tag.go" />
       </list>
     </option>
   </component>
@@ -192,8 +237,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -244,80 +287,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nylon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nylon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="store" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nylon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nylon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="root" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nylon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nylon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nml" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nylon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nylon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -332,6 +305,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -511,12 +485,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.50042623" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.49957374" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32826748" sideWeight="0.49957374" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24978687" sideWeight="0.67021275" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24978687" sideWeight="0.67173254" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -589,114 +563,107 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/nml/atom/table.go">
+    <entry file="file://$PROJECT_DIR$/src/goquery/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="4" selection-start="1822" selection-end="1822" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/token_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="644" column="53" selection-start="11512" selection-end="11512" vertical-scroll-proportion="0.2339374">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/parse_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="40" selection-start="3386" selection-end="3386" vertical-scroll-proportion="0.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/render.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="20" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.23809524">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/doc.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="13" selection-start="2418" selection-end="2418" vertical-scroll-proportion="0.2857143">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/const.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="19" selection-start="2166" selection-end="2166" vertical-scroll-proportion="0.6666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/root/init.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="71" selection-end="71" vertical-scroll-proportion="0.1904762">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/foreign.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="9" selection-start="824" selection-end="824" vertical-scroll-proportion="0.20757826">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/example_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="579" selection-end="579" vertical-scroll-proportion="0.45238096">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/token.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="5" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.36142626">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/node.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="18" selection-start="1963" selection-end="1963" vertical-scroll-proportion="0.33333334">
+        <state line="104" column="17" selection-start="6154" selection-end="6154" vertical-scroll-proportion="0.75688815">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/store/store.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="39" selection-start="167" selection-end="167" vertical-scroll-proportion="0.21428572">
+        <state line="14" column="0" selection-start="189" selection-end="189" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/doctype.go">
+    <entry file="file://$PROJECT_DIR$/src/cascadia/parser.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="27" selection-start="661" selection-end="661" vertical-scroll-proportion="0.21746032">
+        <state line="12" column="29" selection-start="178" selection-end="178" vertical-scroll-proportion="-0.88095236">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/nml/parse.go">
+    <entry file="file://$PROJECT_DIR$/src/cascadia/selector.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2064" column="9" selection-start="49730" selection-end="49730" vertical-scroll-proportion="0.26418152">
+        <state line="471" column="69" selection-start="11686" selection-end="11686" vertical-scroll-proportion="0.64285713">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tags/default.go">
+    <entry file="file://$PROJECT_DIR$/src/goquery/query.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="44" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0">
+        <state line="58" column="9" selection-start="1790" selection-end="1790" vertical-scroll-proportion="1.4332784">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/goquery/utilities.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="94" selection-start="796" selection-end="796" vertical-scroll-proportion="0.21416804">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/goquery/traversal.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="476" column="46" selection-start="19233" selection-end="19233" vertical-scroll-proportion="0.2580071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nml/node.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="4" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/go/src/pkg/builtin/builtin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="5" selection-start="4721" selection-end="4721" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nml/token.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="5" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/goquery/property.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="27" selection-start="2811" selection-end="2811" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/root/init.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="42" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tags/_index.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tags/_raw.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tags/my-tag.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="199" selection-end="199" vertical-scroll-proportion="0.30952382">
+        <state line="16" column="1" selection-start="203" selection-end="203" vertical-scroll-proportion="0.3809524">
           <folding />
         </state>
       </provider>

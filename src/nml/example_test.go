@@ -10,7 +10,7 @@ import (
 	"log"
 	"strings"
 
-	"code.google.com/p/go.net/html"
+	"nml"
 )
 
 func ExampleParse() {
@@ -19,8 +19,8 @@ func ExampleParse() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	var f func(*html.Node)
-	f = func(n *html.Node) {
+	var f func(nml.Node)
+	f = func(n nml.Node) {
 		if n.GetType() == html.ElementNode && n.GetData() == "a" {
 			for _, a := range n.GetAttr() {
 				if a.Key == "href" {

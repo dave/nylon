@@ -18,7 +18,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	str := store.Get()
 	read := strings.NewReader(str)
 
-	doc, err := nml.Parse(read, tags.Lookup)
+	doc, err := nml.Parse(read, tags.Index)
 	if err != nil {
 		panic(err)
 	}

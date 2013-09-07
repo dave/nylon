@@ -78,8 +78,8 @@ example, to process each anchor node in depth-first order:
 	if err != nil {
 		// ...
 	}
-	var f func(*html.Node)
-	f = func(n *html.Node) {
+	var f func(nml.Node)
+	f = func(n nml.Node) {
 		if n.GetType() == html.ElementNode && n.GetData() == "a" {
 			// Do something with n...
 		}
