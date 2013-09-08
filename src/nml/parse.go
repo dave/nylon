@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io"
 	"strings"
-
+	"common"
 	a "nml/atom"
 )
 
@@ -49,6 +49,7 @@ type parser struct {
 	context Node
 	// this is a lookup function that takes the tag name and returns the node
 	lookup func(node *NodeStruct) Node
+	logger *common.Logger
 }
 
 func (p *parser) top() Node {
@@ -303,6 +304,7 @@ func (p *parser) addElement() {
 		DataAtom: p.tok.DataAtom,
 		Data:     p.tok.Data,
 		Attr:     p.tok.Attr,
+		Logger:   p.logger,
 	}))
 }
 
@@ -2013,7 +2015,7 @@ func (p *parser) parse() error {
 
 // Parse returns the parse tree for the HTML from the given Reader.
 // The input is assumed to be UTF-8 encoded.
-func Parse(r io.Reader, lookup func(node *NodeStruct) Node) (Node, error) {
+func Parse(r io.Reader, lookup func(node *NodeStruct) Node, logger *common.Logger) (Node, error) {
 	p := &parser{
 		tokenizer: NewTokenizer(r),
 		doc: lookup(&NodeStruct{
@@ -2023,6 +2025,7 @@ func Parse(r io.Reader, lookup func(node *NodeStruct) Node) (Node, error) {
 		framesetOK: true,
 		im:         initialIM,
 		lookup:     lookup,
+		logger:     logger,
 	}
 	err := p.parse()
 	if err != nil {

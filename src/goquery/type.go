@@ -42,7 +42,7 @@ func NewDocumentFromResponse(res *http.Response, lookup func(node *nml.NodeStruc
 	defer res.Body.Close()
 
 	// Parse the HTML into nodes
-	root, e := nml.Parse(res.Body, lookup)
+	root, e := nml.Parse(res.Body, lookup, nil)
 	if e != nil {
 		return
 	}

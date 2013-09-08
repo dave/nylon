@@ -3,30 +3,26 @@ package tags
 import (
 	"nml"
 	"goquery"
-	//"errors"
+	"errors"
 )
 
 type MyTag struct {
 	*nml.NodeStruct
-	Me nml.Node
+	Me *MyBio
 }
 
-func (n MyTag) Init() error {
+func (n *MyTag) Init() error {
 	err := n.NodeStruct.Init(); if err != nil { return err }
-	/*
 	g := goquery.NewDocumentFromNode(n)
-	me, ok := g.Find("#Me").Nodes[0].(MyBio)
-	if !ok {
-		return errors.New("#Me is not a MyBio")
-	}
+	me, ok := g.Selection.Find("#Me").Nodes[0].(*MyBio); if !ok { return errors.New("#Me is not a MyBio") }
 	n.Me = me
-	*/
-	g := goquery.NewDocumentFromNode(n)
-	n.Me = g.Find("#Me").Nodes[0]
+	n.Me.Color = "foo"
+	n.Logger.Info("%#v", n.Me)
 	return nil
 }
 
-func (n MyTag) Render() {
-	g := goquery.NewDocumentFromNode(n)
-	g.Find("p").SetAttr("style", "color:green;")
+func (n *MyTag) Render() {
+	n.Logger.Info("%#v", n.Me)
+	me := n.Me
+	me.Color = "red"
 }

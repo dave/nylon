@@ -5,6 +5,7 @@
 package nml
 
 import (
+	"common"
 	"nml/atom"
 )
 
@@ -46,12 +47,11 @@ type Node interface {
 	SetNamespace(namespace string)
 	SetAttr(attr []Attribute)
 
-	clone(lookup func(node *NodeStruct) Node) Node
+	clone(lookup func (node *NodeStruct) Node) Node
 
 	Init() error
 	Render()
 }
-
 
 // Section 12.2.3.3 says "scope markers are inserted when entering applet
 // elements, buttons, object elements, marquees, table cells, and table
@@ -68,14 +68,16 @@ var scopeMarker = NodeStruct{Type: scopeMarkerNode}
 // Similarly, "math" is short for "http://www.w3.org/1998/Math/MathML", and
 // "svg" is short for "http://www.w3.org/2000/svg".
 type NodeStruct struct {
-	Parent, FirstChild, LastChild, PrevSibling, NextSibling Node
+	Parent,  FirstChild,  LastChild,  PrevSibling,  NextSibling Node
 
-	Type  NodeType
+	Type      NodeType
 	DataAtom  atom.Atom
 	Data      string
 	Namespace string
 	Attr      []Attribute
+	Logger    *common.Logger
 }
+
 func (n *NodeStruct) GetParent() Node {return n.Parent}
 func (n *NodeStruct) GetFirstChild() Node {return n.FirstChild}
 func (n *NodeStruct) GetLastChild() Node {return n.LastChild}
@@ -199,7 +201,7 @@ func reparentChildren(dst, src Node) {
 
 // clone returns a new node with the same type, data and attributes.
 // The clone has no parent, no siblings and no children.
-func (n *NodeStruct) clone(lookup func(node *NodeStruct) Node) Node {
+func (n *NodeStruct) clone(lookup func (node *NodeStruct) Node) Node {
 
 	attr := make([]Attribute, len(n.GetAttr()))
 	copy(attr, n.GetAttr())
@@ -219,15 +221,15 @@ type nodeStack []Node
 // pop pops the stack. It will panic if s is empty.
 func (s *nodeStack) pop() Node {
 	i := len(*s)
-	n := (*s)[i-1]
-	*s = (*s)[:i-1]
+	n := (*s)[i - 1]
+	*s = (*s)[:i - 1]
 	return n
 }
 
 // top returns the most recently pushed node, or nil if s is empty.
 func (s *nodeStack) top() Node {
 	if i := len(*s); i > 0 {
-		return (*s)[i-1]
+		return (*s)[i - 1]
 	}
 	return nil
 }
@@ -246,7 +248,7 @@ func (s *nodeStack) index(n Node) int {
 // insert inserts a node at the given index.
 func (s *nodeStack) insert(i int, n Node) {
 	(*s) = append(*s, nil)
-	copy((*s)[i+1:], (*s)[i:])
+	copy((*s)[i + 1:], (*s)[i:])
 	(*s)[i] = n
 }
 
@@ -256,7 +258,7 @@ func (s *nodeStack) remove(n Node) {
 	if i == -1 {
 		return
 	}
-	copy((*s)[i:], (*s)[i+1:])
+	copy((*s)[i:], (*s)[i + 1:])
 	j := len(*s) - 1
 	(*s)[j] = nil
 	*s = (*s)[:j]
